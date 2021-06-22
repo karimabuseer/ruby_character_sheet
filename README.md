@@ -14,6 +14,7 @@ Creating backend for a Dungeons and Dragons character sheet using ruby
 - Spell slots
 - Character info (name + xp + race + alignment etc)
 - Features/traits (hard code your AC, but input later)
+- Offline capability
 
 
 # To do list
@@ -26,3 +27,4 @@ Creating backend for a Dungeons and Dragons character sheet using ruby
 - Spell slots
 - Character info (name + xp + race + alignment etc)
 - Features/traits (hard code your AC, but input later)
+- Offline capability
