@@ -2,6 +2,7 @@
 # Classes
 
  @attributes = []
+ @inventory = []
 
 def get_attributes
   stats = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
@@ -10,13 +11,33 @@ def get_attributes
   input = gets.chomp
   @attributes << { attribute.to_sym => input }
   end
+end
+
+def list_attributes
   puts @attributes
 end
 
 def classes
+  puts "Please enter a class: "
+  player_class = gets.chomp
 end
 
-def inventory
+def add_inventory
+  puts "Please enter the name of the item: "
+  item = gets.chomp
+  puts "Please enter a description: "
+  description = gets.chomp
+  @inventory << { item.to_sym => description }
+end
+
+def list_inventory
+  puts @inventory
+end
+
+def del_inventory
+  "Please enter the name of the item to delete: "
+  input = gets.chomp
+  @inventory.delete_if { |x| x == input }
 end
 
 def spell_slots
