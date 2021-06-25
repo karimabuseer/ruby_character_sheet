@@ -6,16 +6,40 @@
 
 def get_attributes
   stats = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats.each do |attribute|
-  puts "Please enter a #{attribute} value: "
+  stats.each do |att|
+  puts "Please enter a #{att} value: "
   input = gets.chomp
-  @attributes << { attribute.to_sym => input }
+  @attributes << { att.to_sym => input.to_i }
   end
 end
 
 def list_attributes
   puts @attributes
 end
+
+def save_attributes
+  file = File.open("attributes.csv", "w")
+  @attributes.each do |att| 
+    att.each do |key, val|
+      attribute_data = key, val
+      csv_line = attribute_data.join(",")
+      file.puts csv_line
+    end
+  @attributes = [] #Clears so doesn't dupe
+  end
+  file.close
+end
+
+def load_attributes
+  file = File.open("attributes.csv", "r")
+  file.readlines.each do |line|
+    att, stat = line.chomp.split(",")
+    @attributes << { att => stat }
+  end
+  file.close
+
+end
+  
 
 def classes
   puts "Please enter a class: "
@@ -40,32 +64,15 @@ def del_inventory
   @inventory.delete_if { |x| x == input }
 end
 
-def spell_slots
-end
 
-def hp
-end
-
-def level_up
-  # when to get abiilty increasers ect
-end
-
-def dice_roll
-end
-
-def character_info
-end
-
-def init
-end
-
-def ac
-end
-
-def speed
-end
-
-def feats
-end
 
 get_attributes
+save_attributes
+load_attributes
+list_attributes
+
+
+
+# Attributes work out bonus
+# Store atrtibutes
+# CRUD

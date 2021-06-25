@@ -1,0 +1,31 @@
+def spell_slots
+end
+
+def hp
+end
+
+def level_up
+  # when to get abiilty increasers ect
+end
+
+def dice_roll
+end
+
+def character_info
+end
+
+def init
+end
+
+def ac
+end
+
+def speed
+end
+
+def feats
+end
+
+ att.each do |key, val|
+      attribute_data = [att[key], att[val]]
+      csv_line = attribute_data.join(",")
